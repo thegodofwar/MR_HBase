@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+      <configuration> 
+        <property> 
+            <name>hbase.cluster.distributed</name> 
+            <value>true</value> 
+        </property> 
+        <property> 
+                <name>hbase.rootdir</name> 
+                <value>hdfs://10.3.254.13:9001/hbase</value> 
+          </property> 
+          <property> 
+                <name>dfs.replication</name> 
+                <value>3</value> 
+          </property>
+          <property>
+               <name>hbase.zookeeper.property.clientPort</name>
+               <value>2181</value>
+               <description>
+                Property from ZooKeeper's config zoo.cfg.
+                The port at which the clients will connect.
+              </description>
+         </property> 
+         <property>  
+             <name>hbase.zookeeper.quorum</name>  
+             <value>10.3.254.13,10.3.254.15,10.3.254.80</value>  
+             <description>
+             Comma separated listof servers in the ZooKeeper Quorum.  
+             For example,"host1.mydomain.com,host2.mydomain.com,host3.mydomain.com".  
+             By default this is set to localhost forlocal and pseudo-distributed modes  
+             of operation. For a fully-distributedsetup, this should be set to a full  
+             list of ZooKeeper quorum servers. IfHBASE_MANAGES_ZK is set in hbase-env.sh  
+             this is the list of servers which we willstart/stop ZooKeeper on.  
+             </description>  
+         </property>
+         <property> 
+            <name>hbase.master</name> 
+            <value>hdfs://10.3.254.13:60000</value> 
+         </property>   
+    </configuration>
+</configuration>
